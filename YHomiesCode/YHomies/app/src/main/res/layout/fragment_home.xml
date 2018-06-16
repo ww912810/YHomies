@@ -4,13 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ui.fragment.HomeFragment"
+    android:background="@color/white_f7"
+    android:gravity="center"
     android:orientation="vertical"
-    android:gravity="center">
+    tools:context=".view.ui.fragment.HomeFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="首页" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@mipmap/ic_search" />
+
+        <RelativeLayout
+            android:id="@+id/rlMessage"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                android:src="@mipmap/ic_notification_nothing" />
+
+            <TextView
+                android:id="@+id/tvMessageNumber"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/ic_message_nummber"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/tabLayoutPosts"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:background="@color/white"
+            app:tl_indicator_color="@color/red_ed"
+            app:tl_indicator_corner_radius="3px"
+            app:tl_indicator_height="2dp"
+            app:tl_indicator_width="120px"
+            app:tl_textSelectColor="@color/black_3f"
+            app:tl_textUnselectColor="@color/gray_a5"
+            app:tl_textsize="16sp" />
+    </RelativeLayout>
+
+
+    <com.example.dbh.yhomies.view.ui.customize_view.NoScrollViewPager
+        android:id="@+id/nsViewPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" />
 
 </android.support.v7.widget.LinearLayoutCompat>

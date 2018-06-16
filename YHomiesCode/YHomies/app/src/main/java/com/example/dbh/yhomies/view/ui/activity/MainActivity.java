@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 /**
  * 首页Fragment
- * 包含三个子Fragment：热门 好友 附近
+ * 包含三个子Fragment：热门 关注 附近
  *
  * @author 段博涵
  */
