@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">YHomies</string>
+    <string name="title_activity_find_fragment">FindFragment</string>
 </resources>

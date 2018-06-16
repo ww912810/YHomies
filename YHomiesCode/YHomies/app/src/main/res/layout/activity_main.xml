@@ -1,11 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.ui.activity.MainActivity"
-    android:orientation="vertical">
+    tools:context=".view.ui.activity.MainActivity">
 
+    <com.example.dbh.yhomies.view.ui.customize_view.NoScrollViewPager
+        android:id="@+id/myViewPage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/vLine" />
 
-</android.support.v7.widget.LinearLayoutCompat>
+    <View
+        android:id="@+id/vLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/llBottomTools"
+        android:background="@color/white_f7" />
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/llBottomTools"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/ivHomies"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="center"
+            android:src="@mipmap/ic_home_check" />
+
+        <ImageView
+            android:id="@+id/ivSquare"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="center"
+            android:src="@mipmap/ic_square_uncheck" />
+
+        <ImageView
+            android:id="@+id/ivAdd"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="center"
+            android:src="@android:drawable/ic_input_add" />
+
+        <ImageView
+            android:id="@+id/ivFriend"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="center"
+            android:src="@mipmap/ic_friend_uncheck" />
+
+        <ImageView
+            android:id="@+id/ivMy"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="center"
+            android:src="@mipmap/ic_my_uncheck" />
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+</RelativeLayout>
