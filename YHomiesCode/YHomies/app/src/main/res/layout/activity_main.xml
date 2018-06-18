@@ -10,7 +10,7 @@
         android:id="@+id/myViewPage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/vLine" />
+        android:layout_above="@+id/vLine"/>
 
     <View
         android:id="@+id/vLine"
@@ -48,7 +48,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:scaleType="center"
-            android:src="@android:drawable/ic_input_add" />
+            android:src="@mipmap/ic_release" />
 
         <ImageView
             android:id="@+id/ivFriend"

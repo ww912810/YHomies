@@ -34,4 +34,6 @@ dependencies {
     implementation files('libs/DBHUtils.jar')
     //TabLayout
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.2@aar'
+    //圆形图片控件
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 }
