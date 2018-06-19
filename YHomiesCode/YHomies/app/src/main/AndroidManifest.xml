@@ -2,7 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dbh.yhomies">
 
+    <!--网络访问权限-->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".application.MyApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_logo"
@@ -10,6 +14,11 @@
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/no_title">
+
+        <meta-data
+            android:name="com.example.dbh.yhomies.utils.glide.GlideConfiguration"
+            android:value="GlideModule" />
+
         <activity
             android:name=".view.ui.activity.StartActivity"
             android:theme="@style/SplashTheme">
@@ -25,7 +34,9 @@
         <activity android:name=".view.ui.fragment.SquareFragment" />
         <activity android:name=".view.ui.fragment.FindFragment" />
         <activity android:name=".view.ui.fragment.MyFragment" />
-        <activity android:name=".view.ui.fragment.HomeChildFragment"></activity>
+        <activity android:name=".view.ui.fragment.HomeChildFragment" />
+        <activity android:name=".view.ui.activity.SettingActivity" />
+        <activity android:name=".view.ui.activity.AboutActivity"></activity>
     </application>
 
 </manifest>

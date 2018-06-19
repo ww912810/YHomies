@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -19,6 +20,8 @@ import com.example.dbh.yhomies.view.ui.fragment.MyFragment;
 import com.example.dbh.yhomies.view.ui.fragment.SquareFragment;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 /**
@@ -31,17 +34,10 @@ public class MainActivity extends WhiteBaseActivity {
 
     private Context mContext;
 
-    private HomeFragment homeFragment;
-    private SquareFragment squareFragment;
-    private FindFragment findFragment;
-    private MyFragment myFragment;
-
     private ImageView ivHomies, ivSquare, ivAdd, ivFriend, ivMy;
     private int[] toolsImageCheck = new int[]{R.mipmap.ic_home_check, R.mipmap.ic_square_check, R.mipmap.ic_friend_check, R.mipmap.ic_my_check};
     private int[] toolsImageUnCheck = new int[]{R.mipmap.ic_home_uncheck, R.mipmap.ic_square_uncheck, R.mipmap.ic_friend_uncheck, R.mipmap.ic_my_uncheck};
-    private ArrayList<Fragment> fragments;
     private NoScrollViewPager myViewPage;
-    private MainFragmentsAdapter mainFragmentsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +98,7 @@ public class MainActivity extends WhiteBaseActivity {
         ivAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtils.showSafeShortToast(mContext,"点击发布");
+                ToastUtils.showSafeShortToast(mContext, "点击发布");
             }
         });
     }
@@ -111,16 +107,16 @@ public class MainActivity extends WhiteBaseActivity {
      * 初始化碎片
      */
     private void initFragment() {
-        fragments = new ArrayList<>();
-        homeFragment = new HomeFragment();
-        squareFragment = new SquareFragment();
-        findFragment = new FindFragment();
-        myFragment = new MyFragment();
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        HomeFragment homeFragment = new HomeFragment();
+        SquareFragment squareFragment = new SquareFragment();
+        FindFragment findFragment = new FindFragment();
+        MyFragment myFragment = new MyFragment();
         fragments.add(homeFragment);
         fragments.add(squareFragment);
         fragments.add(findFragment);
         fragments.add(myFragment);
-        mainFragmentsAdapter = new MainFragmentsAdapter(getSupportFragmentManager(), fragments);
+        MainFragmentsAdapter mainFragmentsAdapter = new MainFragmentsAdapter(getSupportFragmentManager(), fragments);
         myViewPage.setAdapter(mainFragmentsAdapter);
         myViewPage.setCurrentItem(0);
     }
@@ -152,6 +148,45 @@ public class MainActivity extends WhiteBaseActivity {
             default:
                 break;
         }
+    }
+
+
+    /**
+     * 双击退出应用
+     */
+    private static Boolean isExit = false;
+
+    private void exitBy2Click() {
+        if (!isExit) {
+
+            isExit = true; // 准备退出
+            ToastUtils.showShortToast(mContext, "再按一次退出Homies");
+
+            Timer tExit = new Timer();
+
+            tExit.schedule(new TimerTask() {
+
+                @Override
+
+                public void run() {
+
+                    isExit = false; // 取消退出
+                }
+
+            }, 2000); // 如果2秒钟内没有按下返回键，则启动定时器取消掉刚才执行的任务
+
+        } else {
+            finish();
+            System.exit(0);
+        }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exitBy2Click();  //退出应用的操作
+        }
+        return false;
     }
 
 }
