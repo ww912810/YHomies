@@ -2,6 +2,8 @@ package com.example.dbh.yhomies.view.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutCompat;
@@ -22,7 +24,7 @@ public class SettingActivity extends WhiteBaseActivity {
 
     private TextView tvFeedBack, tvAbout, tvCacheNumber, tvCheckUpdate;
     private LinearLayoutCompat llcClearCache;
-
+    private Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,16 @@ public class SettingActivity extends WhiteBaseActivity {
         setContentView(R.layout.activity_setting);
 
         mContext = this;
+        mHandler = new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                switch (msg.what){
+                    case 0:
+                        tvCacheNumber.setText(GlideCatchUtil.getInstance().getCacheSize());
+                        break;
+                }
+            }
+        };
     }
 
     @Override
@@ -70,9 +82,6 @@ public class SettingActivity extends WhiteBaseActivity {
         llcClearCache.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
                 if (GlideCatchUtil.getInstance().clearCacheMemory()) {
                     ToastUtils.showSafeShortToast(mContext,"清除内存缓存成功!");
                 } else {
@@ -83,6 +92,7 @@ public class SettingActivity extends WhiteBaseActivity {
                 } else {
                     ToastUtils.showSafeShortToast(mContext,"清除磁盘缓存失败!");
                 }
+                mHandler.sendEmptyMessage(0);
             }
         });
     }

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">YHomies</string>
     <string name="title_activity_find_fragment">FindFragment</string>
+    <string name="activity_description">演出、赛事、Cypher尽在Homies</string>
 </resources>

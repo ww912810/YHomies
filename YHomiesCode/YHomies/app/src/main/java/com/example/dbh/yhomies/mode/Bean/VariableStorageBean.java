@@ -1,4 +1,4 @@
-package com.example.dbh.yhomies.mode;
+package com.example.dbh.yhomies.mode.Bean;
 
 public class VariableStorageBean {
 

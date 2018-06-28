@@ -38,4 +38,6 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     //缓存相关
     implementation 'com.github.bumptech.glide:glide:3.7.0'
+    //快捷适配器
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.38'
 }
