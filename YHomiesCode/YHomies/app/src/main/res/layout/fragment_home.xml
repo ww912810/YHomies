@@ -69,7 +69,7 @@
     </RelativeLayout>
 
 
-    <com.example.dbh.yhomies.view.ui.customize_view.NoScrollViewPager
+    <com.example.dbh.yhomies.view.customize_view.NoScrollViewPager
         android:id="@+id/nsViewPage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".view.ui.activity.MainActivity">
 
-    <com.example.dbh.yhomies.view.ui.customize_view.NoScrollViewPager
+    <com.example.dbh.yhomies.view.customize_view.NoScrollViewPager
         android:id="@+id/myViewPage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

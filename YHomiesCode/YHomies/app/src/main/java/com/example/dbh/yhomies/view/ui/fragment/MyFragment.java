@@ -1,27 +1,21 @@
 package com.example.dbh.yhomies.view.ui.fragment;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.dbh.yhomies.R;
 import com.example.dbh.yhomies.view.adapter.MainFragmentsAdapter;
 import com.example.dbh.yhomies.view.ui.activity.SettingActivity;
-import com.example.dbh.yhomies.view.ui.customize_view.NoScrollViewPager;
+import com.example.dbh.yhomies.view.customize_view.NoScrollViewPager;
 import com.flyco.tablayout.SlidingTabLayout;
-import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.util.ArrayList;
 

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.view.View;
@@ -14,7 +13,7 @@ import android.widget.TextView;
 import com.example.dawn.dawnsutils.ToastUtils;
 import com.example.dbh.yhomies.R;
 import com.example.dbh.yhomies.utils.glide.GlideCatchUtil;
-import com.example.dbh.yhomies.view.ui.base_view.WhiteBaseActivity;
+import com.example.dbh.yhomies.view.base_view.WhiteBaseActivity;
 
 public class SettingActivity extends WhiteBaseActivity {
 

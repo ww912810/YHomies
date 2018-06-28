@@ -1,4 +1,4 @@
-package com.example.dbh.yhomies.view.ui.base_view;
+package com.example.dbh.yhomies.view.base_view;
 
 import android.annotation.TargetApi;
 import android.os.Build;

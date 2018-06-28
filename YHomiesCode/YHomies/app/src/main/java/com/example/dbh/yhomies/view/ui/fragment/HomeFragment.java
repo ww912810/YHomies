@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.dbh.yhomies.R;
 import com.example.dbh.yhomies.view.adapter.MainFragmentsAdapter;
-import com.example.dbh.yhomies.view.ui.customize_view.NoScrollViewPager;
+import com.example.dbh.yhomies.view.customize_view.NoScrollViewPager;
 import com.flyco.tablayout.SlidingTabLayout;
 
 import java.util.ArrayList;

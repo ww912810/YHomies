@@ -10,71 +10,174 @@
 
     <include layout="@layout/app_title" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvFieldFilter"
+    <com.example.dbh.yhomies.view.customize_view.RecyclerViewWrapperForScrollView
         android:layout_width="match_parent"
-        android:layout_height="138dp"
-        android:background="@color/white" />
-
-    <android.support.v7.widget.LinearLayoutCompat
-        android:id="@+id/llcActivity"
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
 
         <android.support.v7.widget.LinearLayoutCompat
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="vertical"
-            android:paddingLeft="20dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="活动"
-                android:textColor="@color/black_3f"
-                android:textSize="16sp" />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvFieldFilter"
+                android:layout_width="match_parent"
+                android:layout_height="138dp"
+                android:background="@color/white" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <android.support.v7.widget.LinearLayoutCompat
+                android:id="@+id/llcActivity"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="活动"
+                        android:textColor="@color/black_3f"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/activity_description"
+                        android:textColor="@color/gray_73"
+                        android:textSize="14sp" />
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/start_background" />
+
+            </android.support.v7.widget.LinearLayoutCompat>
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="158dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rlToMorePopularity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:layout_marginTop="18dp"
+                        android:text="@string/squarePopularity"
+                        android:textColor="@color/black_3f"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/icRight"
+                        android:text="@string/squareMorePopularity"
+                        android:textColor="@color/gray_a5"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/icRight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/ic_drop_down" />
+
+                </RelativeLayout>
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvPopularity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="16dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp" />
+            </android.support.v7.widget.LinearLayoutCompat>
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/activity_description"
-                android:textColor="@color/gray_73"
-                android:textSize="14sp" />
+                android:background="@color/white"
+                android:orientation="vertical">
 
+                <RelativeLayout
+                    android:id="@+id/rlToMoreNearby"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="18dp"
+                        android:layout_marginTop="18dp"
+                        android:text="@string/squareNearby"
+                        android:textColor="@color/black_3f"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_toLeftOf="@+id/icNearbyRight"
+                        android:text="@string/squareMoreNearby"
+                        android:textColor="@color/gray_a5"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/icNearbyRight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/ic_drop_down" />
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvNearby"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </android.support.v7.widget.LinearLayoutCompat>
         </android.support.v7.widget.LinearLayoutCompat>
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_weight="1"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/start_background" />
-
-    </android.support.v7.widget.LinearLayoutCompat>
-
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="158dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/white">
-
-    </android.support.v7.widget.LinearLayoutCompat>
-
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@color/white">
-
-    </android.support.v7.widget.LinearLayoutCompat>
+    </com.example.dbh.yhomies.view.customize_view.RecyclerViewWrapperForScrollView>
 
 </android.support.v7.widget.LinearLayoutCompat>

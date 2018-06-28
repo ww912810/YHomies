@@ -1,7 +1,6 @@
 package com.example.dbh.yhomies.view.ui.activity;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebView;
@@ -11,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.dbh.yhomies.R;
 import com.example.dbh.yhomies.utils.HttpUrlUtils;
-import com.example.dbh.yhomies.view.ui.base_view.WhiteBaseActivity;
+import com.example.dbh.yhomies.view.base_view.WhiteBaseActivity;
 
 public class AboutActivity extends WhiteBaseActivity {
 

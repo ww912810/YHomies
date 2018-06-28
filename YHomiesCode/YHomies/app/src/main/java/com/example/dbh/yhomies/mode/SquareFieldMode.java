@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * 填充数据
  */
-public class FieldMode {
+public class SquareFieldMode {
 
     public static void getSquareField(ISquareFieldMode iSquareFieldMode) {
         ArrayList data = new ArrayList();

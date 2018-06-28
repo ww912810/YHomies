@@ -2,4 +2,8 @@
     <string name="app_name">YHomies</string>
     <string name="title_activity_find_fragment">FindFragment</string>
     <string name="activity_description">演出、赛事、Cypher尽在Homies</string>
+    <string name="squarePopularity">人气Homies</string>
+    <string name="squareMorePopularity">更多人气Homies</string>
+    <string name="squareNearby">附近Homies</string>
+    <string name="squareMoreNearby">结识更多有趣Homies</string>
 </resources>

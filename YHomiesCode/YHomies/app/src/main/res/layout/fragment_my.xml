@@ -126,7 +126,7 @@
             app:tl_textUnselectColor="@color/gray_a5"
             app:tl_textsize="16sp" />
 
-        <com.example.dbh.yhomies.view.ui.customize_view.NoScrollViewPager
+        <com.example.dbh.yhomies.view.customize_view.NoScrollViewPager
             android:id="@+id/nsMyViewPage"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

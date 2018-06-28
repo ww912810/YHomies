@@ -1,4 +1,4 @@
-package com.example.dbh.yhomies.view.ui.customize_view;
+package com.example.dbh.yhomies.view.customize_view;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
