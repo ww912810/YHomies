@@ -59,7 +59,7 @@
 
                 </android.support.v7.widget.LinearLayoutCompat>
 
-                <ImageView
+                <com.example.dbh.yhomies.view.customize_view.MyTrapezoidalImageView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="15dp"
@@ -67,7 +67,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_weight="1"
-                    android:scaleType="centerCrop"
+                    android:scaleType="center"
                     android:src="@mipmap/start_background" />
 
             </android.support.v7.widget.LinearLayoutCompat>
