@@ -27,6 +27,7 @@ import com.example.dbh.yhomies.view.adapter.SquareFieldAdapter;
 import com.example.dbh.yhomies.view.adapter.SquareNearbyAdapter;
 import com.example.dbh.yhomies.view.adapter.SquarePopularityAdapter;
 import com.example.dbh.yhomies.view.ui.activity.MoreNearbyActivity;
+import com.example.dbh.yhomies.view.ui.activity.MorePopularityActivity;
 import com.example.dbh.yhomies.view.v_interface.ISquareFieldView;
 import com.example.dbh.yhomies.view.v_interface.ISquareView;
 
@@ -160,7 +161,7 @@ public class SquareFragment extends Fragment implements ISquareFieldView, ISquar
         rlToMorePopularity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtils.showSafeShortToast(mContext, "点击更多人气");
+                startActivity(new Intent(mContext, MorePopularityActivity.class));
             }
         });
 

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,6 +18,7 @@ import com.example.dbh.yhomies.view.base_view.WhiteBaseActivity;
 import com.example.dbh.yhomies.view.v_interface.ISquareView;
 
 import java.util.List;
+
 
 public class MoreNearbyActivity extends WhiteBaseActivity implements ISquareView {
 
@@ -50,6 +50,7 @@ public class MoreNearbyActivity extends WhiteBaseActivity implements ISquareView
         rvNearby = findViewById(R.id.rvNearby);
         squarePresenter = new SquarePresenter(this);
     }
+
 
     @Override
     protected void initListener() {

@@ -36,7 +36,8 @@
         <activity android:name=".view.ui.fragment.HomeChildFragment" />
         <activity android:name=".view.ui.activity.SettingActivity" />
         <activity android:name=".view.ui.activity.AboutActivity" />
-        <activity android:name=".view.ui.activity.MoreNearbyActivity"></activity>
+        <activity android:name=".view.ui.activity.MoreNearbyActivity" />
+        <activity android:name=".view.ui.activity.MorePopularityActivity"></activity>
     </application>
 
 </manifest>

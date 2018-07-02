@@ -4,18 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".view.ui.activity.MoreNearbyActivity"
-    android:background="@color/white">
+    tools:context=".view.ui.activity.MoreNearbyActivity">
 
     <include layout="@layout/app_title" />
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvNearby"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="18dp" />
+
 
 </android.support.v7.widget.LinearLayoutCompat>

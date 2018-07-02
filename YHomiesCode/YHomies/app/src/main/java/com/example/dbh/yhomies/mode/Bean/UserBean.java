@@ -15,6 +15,7 @@ public class UserBean {
     public String userFansNumber;
     public String userLastTime;
     public String userLastDistance;
+    public String isAttention;
 
     @Override
     public String toString() {
@@ -27,6 +28,7 @@ public class UserBean {
                 ", userFansNumber='" + userFansNumber + '\'' +
                 ", userLastTime='" + userLastTime + '\'' +
                 ", userLastDistance='" + userLastDistance + '\'' +
+                ", isAttention='" + isAttention + '\'' +
                 '}';
     }
 }
