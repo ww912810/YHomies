@@ -11,11 +11,17 @@ public class UserBean {
     public String userName;
     public String userLogo;
     public String userSex;
+    public String userPhone;
+    public String userCity;
+    public String userPwd;
+    public String userBackgroundUrl;
+    public String userSignature;
     public String userPostNumber;
     public String userFansNumber;
     public String userLastTime;
     public String userLastDistance;
     public String isAttention;
+    public boolean isLoggedIn = false;
 
     @Override
     public String toString() {
@@ -24,11 +30,17 @@ public class UserBean {
                 ", userName='" + userName + '\'' +
                 ", userLogo='" + userLogo + '\'' +
                 ", userSex='" + userSex + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                ", userCity='" + userCity + '\'' +
+                ", userPwd='" + userPwd + '\'' +
+                ", userBackgroundUrl='" + userBackgroundUrl + '\'' +
+                ", userSignature='" + userSignature + '\'' +
                 ", userPostNumber='" + userPostNumber + '\'' +
                 ", userFansNumber='" + userFansNumber + '\'' +
                 ", userLastTime='" + userLastTime + '\'' +
                 ", userLastDistance='" + userLastDistance + '\'' +
                 ", isAttention='" + isAttention + '\'' +
+                ", isLoggedIn=" + isLoggedIn +
                 '}';
     }
 }

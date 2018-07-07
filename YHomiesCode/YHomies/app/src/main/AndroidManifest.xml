@@ -4,6 +4,8 @@
 
     <!-- 网络访问权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 访问网络状态权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".application.MyApplication"
@@ -37,7 +39,10 @@
         <activity android:name=".view.ui.activity.SettingActivity" />
         <activity android:name=".view.ui.activity.AboutActivity" />
         <activity android:name=".view.ui.activity.MoreNearbyActivity" />
-        <activity android:name=".view.ui.activity.MorePopularityActivity"></activity>
+        <activity android:name=".view.ui.activity.MorePopularityActivity" />
+        <activity android:name=".view.ui.activity.LoginAndRegisteredActivity" />
+        <activity android:name=".view.ui.activity.LoginActivity" />
+        <activity android:name=".view.ui.activity.LoginForPasswordActivity"></activity>
     </application>
 
 </manifest>

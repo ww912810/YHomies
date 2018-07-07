@@ -55,6 +55,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tvUserName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="悟悟"
@@ -68,12 +69,14 @@
                         android:orientation="horizontal">
 
                         <ImageView
+                            android:id="@+id/ivUserSex"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
                             android:src="@mipmap/ic_boy" />
 
                         <TextView
+                            android:id="@+id/tvUserCity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="北京"
@@ -82,6 +85,7 @@
                     </android.support.v7.widget.LinearLayoutCompat>
 
                     <TextView
+                        android:id="@+id/tvUserSignature"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Keep it real for my life !"
@@ -93,6 +97,7 @@
             </RelativeLayout>
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/civUserLogo"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
                 android:src="@mipmap/start_background"

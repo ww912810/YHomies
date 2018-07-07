@@ -36,7 +36,7 @@ public abstract class BlackBaseActivity extends AppCompatActivity {
             //在内容视图设置后创建我们的管理器实例
             SystemBarTintManager mTintManager = new SystemBarTintManager(this);
             mTintManager.setStatusBarTintEnabled(true);
-            mTintManager.setStatusBarTintResource(R.color.black);//通知栏所需颜色
+            mTintManager.setStatusBarTintResource(R.color.black_43);//通知栏所需颜色
         }
     }
 

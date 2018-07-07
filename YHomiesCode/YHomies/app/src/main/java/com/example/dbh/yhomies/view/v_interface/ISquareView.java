@@ -1,6 +1,5 @@
 package com.example.dbh.yhomies.view.v_interface;
 
-import com.example.dbh.yhomies.mode.Bean.FieldBean;
 import com.example.dbh.yhomies.mode.Bean.UserBean;
 
 import java.util.List;
