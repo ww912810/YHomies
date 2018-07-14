@@ -1,5 +1,6 @@
 package com.example.dbh.yhomies.view.ui.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
@@ -25,6 +26,7 @@ public class SettingActivity extends WhiteBaseActivity {
     private LinearLayoutCompat llcClearCache;
     private Handler mHandler;
 
+    @SuppressLint("HandlerLeak")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

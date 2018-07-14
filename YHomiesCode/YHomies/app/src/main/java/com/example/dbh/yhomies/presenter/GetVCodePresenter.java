@@ -3,6 +3,7 @@ package com.example.dbh.yhomies.presenter;
 import android.content.Context;
 
 import com.example.dawn.dawnsutils.NetWorkUtil;
+import com.example.dbh.yhomies.R;
 import com.example.dbh.yhomies.mode.GetVCodeMode;
 import com.example.dbh.yhomies.mode.m_interface.IGetVCodeMode;
 import com.example.dbh.yhomies.view.v_interface.IGetVCodeView;
@@ -15,7 +16,7 @@ public class GetVCodePresenter {
         this.iGetVCodeView = iGetVCodeView;
     }
 
-    public void getVCode(String phone, Context mContext) {
+    public void getVCode(String phone, final Context mContext) {
         if (NetWorkUtil.getNetWorkType(mContext) == NetWorkUtil.NETWORKTYPE_INVALID) {
             iGetVCodeView.getVCodeOnError();
         } else {
@@ -27,7 +28,7 @@ public class GetVCodePresenter {
 
                 @Override
                 public void onFailure(String msg) {
-                    iGetVCodeView.getVCodeOnFailure(msg);
+                    iGetVCodeView.getVCodeOnFailure(mContext.getResources().getString(R.string.getVCodeOnError));
                 }
 
                 @Override

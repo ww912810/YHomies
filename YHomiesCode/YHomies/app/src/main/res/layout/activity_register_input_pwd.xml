@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_43"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".view.ui.activity.RegisterInputPwdActivity">
+
+    <include layout="@layout/app_title" />
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="密码"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:text="至少六位字符"
+            android:textColor="@color/gray_73"
+            android:textSize="16sp" />
+    </android.support.v7.widget.LinearLayoutCompat>
+
+
+    <EditText
+        android:id="@+id/etPassWord"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@null"
+        android:hint="请输入不少于6位密码"
+        android:inputType="textPassword"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray_73"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="280dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="7dp"
+        android:background="@color/gray_73" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp"
+        android:text="请再次输入密码"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etAgainInputPassWord"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:minEms="6"
+            android:maxEms="10"
+            android:hint="请再次输入密码"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/gray_73"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/ivPwdVisible"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitEnd"
+            android:src="@mipmap/ic_black_eyes" />
+
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <View
+        android:layout_width="280dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="7dp"
+        android:background="@color/gray_73" />
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/ic_shape25_red_ff4646_button_background"
+        android:text="下一步"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+</android.support.v7.widget.LinearLayoutCompat>

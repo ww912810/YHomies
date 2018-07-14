@@ -68,13 +68,15 @@ public class LoginAndRegisteredActivity extends BlackBaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(mContext,LoginActivity.class));
+                finish();
             }
         });
         //跳转手机号注册按钮
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(mContext,RegisterInputPhoneActivity.class));
+                finish();
             }
         });
         //qq三方登陆按钮

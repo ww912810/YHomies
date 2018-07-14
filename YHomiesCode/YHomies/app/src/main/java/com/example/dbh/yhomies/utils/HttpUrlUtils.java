@@ -7,9 +7,9 @@ package com.example.dbh.yhomies.utils;
 
 public class HttpUrlUtils {
 
-//public static String IP = "http://10.69.11.126:8080";
+    //public static String IP = "http://dawn55.55555.io:10353";
 
-    public static String IP = "http://47.52.142.235:8081"; //服务器IP
+   public static String IP = "http://47.52.142.235:8081"; //服务器IP
 
 
     /**

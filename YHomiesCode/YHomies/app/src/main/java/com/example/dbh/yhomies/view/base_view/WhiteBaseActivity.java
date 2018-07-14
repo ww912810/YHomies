@@ -2,11 +2,14 @@ package com.example.dbh.yhomies.view.base_view;
 
 import android.annotation.TargetApi;
 import android.os.Build;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.dbh.yhomies.R;
+import com.example.dbh.yhomies.utils.manager.AppManager;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 public abstract class WhiteBaseActivity extends AppCompatActivity {
@@ -24,6 +27,13 @@ public abstract class WhiteBaseActivity extends AppCompatActivity {
         applyKitKatTranslucency();
         initView();
         initListener();
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // 添加Activity到堆栈
+        AppManager.getAppManager().addActivity(this);
     }
 
     /**
@@ -57,4 +67,10 @@ public abstract class WhiteBaseActivity extends AppCompatActivity {
 
     protected abstract void initListener();
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // 结束Activity&从堆栈中移除
+        AppManager.getAppManager().finishActivity(this);
+    }
 }

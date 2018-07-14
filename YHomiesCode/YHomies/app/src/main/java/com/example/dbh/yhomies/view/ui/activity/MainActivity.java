@@ -8,11 +8,13 @@ import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.example.dawn.dawnsutils.ToastUtils;
 import com.example.dbh.yhomies.R;
 import com.example.dbh.yhomies.view.adapter.MainFragmentsAdapter;
 import com.example.dbh.yhomies.view.base_view.WhiteBaseActivity;
+import com.example.dbh.yhomies.view.customize_view.MoreWindow;
 import com.example.dbh.yhomies.view.customize_view.NoScrollViewPager;
 import com.example.dbh.yhomies.view.ui.fragment.FindFragment;
 import com.example.dbh.yhomies.view.ui.fragment.HomeFragment;
@@ -39,6 +41,9 @@ public class MainActivity extends WhiteBaseActivity {
     private int[] toolsImageUnCheck = new int[]{R.mipmap.ic_home_uncheck, R.mipmap.ic_square_uncheck, R.mipmap.ic_friend_uncheck, R.mipmap.ic_my_uncheck};
     private NoScrollViewPager myViewPage;
 
+    private MoreWindow mMoreWindow;
+    private RelativeLayout idContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +62,9 @@ public class MainActivity extends WhiteBaseActivity {
         ivAdd = findViewById(R.id.ivAdd);
         ivFriend = findViewById(R.id.ivFriend);
         ivMy = findViewById(R.id.ivMy);
+        idContainer = findViewById(R.id.id_container);
+        mMoreWindow = new MoreWindow(this);
+        mMoreWindow.init(idContainer);
     }
 
     @Override
@@ -98,7 +106,7 @@ public class MainActivity extends WhiteBaseActivity {
         ivAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtils.showSafeShortToast(mContext, "点击发布");
+                showMoreWindow();
             }
         });
     }
@@ -150,6 +158,17 @@ public class MainActivity extends WhiteBaseActivity {
         }
     }
 
+    /**
+     * 显示发帖选择框
+     */
+    private void showMoreWindow() {
+        if (null == mMoreWindow) {
+            mMoreWindow = new MoreWindow(this);
+            mMoreWindow.init(idContainer);
+        }
+
+        mMoreWindow.showMoreWindow(idContainer );
+    }
 
     /**
      * 双击退出应用

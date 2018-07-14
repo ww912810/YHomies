@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.dbh.yhomies.R;
+import com.example.dbh.yhomies.mode.Bean.VariableStorageBean;
 import com.example.dbh.yhomies.view.adapter.MainFragmentsAdapter;
 import com.example.dbh.yhomies.view.ui.activity.LoginAndRegisteredActivity;
 import com.example.dbh.yhomies.view.ui.activity.SettingActivity;
@@ -86,7 +88,7 @@ public class MyFragment extends Fragment {
         ivUserSex = view.findViewById(R.id.ivUserSex);
         civUserLogo = view.findViewById(R.id.civUserLogo);
 
-        userName = spf.getString("userName", "");
+        userName = spf.getString("userName", "未登录");
         userSex = spf.getString("userSex", "");
         userCity = spf.getString("userCity", "");
         userSignature = spf.getString("userSignature", "");
@@ -144,7 +146,7 @@ public class MyFragment extends Fragment {
             if (spf != null) {
                 boolean isLoggedIn = spf.getBoolean("isLoggedIn", false);
                 if (isLoggedIn) {
-                    userName = spf.getString("userName", "");
+                    userName = spf.getString("userName", "未登录");
                     userSex = spf.getString("userSex", "");
                     userCity = spf.getString("userCity", "");
                     userSignature = spf.getString("userSignature", "");
@@ -161,8 +163,11 @@ public class MyFragment extends Fragment {
                     tvUserSignature.setText(userSignature);
                     Glide.with(mContext).load(userLogo).into(civUserLogo);
                     Glide.with(mContext).load(userBackgroundUrl).into(ivUserBackground);
-                    editor.putBoolean("isLoggedIn", false);
+                    editor.putBoolean("isLoggedIn", true);
                     editor.commit();
+                } else {
+                    Log.d(VariableStorageBean.LOG_TAG, "" + isLoggedIn);
+                    startActivity(new Intent(mContext, LoginAndRegisteredActivity.class));
                 }
             }
 

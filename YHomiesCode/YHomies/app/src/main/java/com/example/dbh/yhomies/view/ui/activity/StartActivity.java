@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import com.example.dbh.yhomies.R;
 import com.example.dbh.yhomies.utils.WindowManagerUtils;
+import com.example.dbh.yhomies.utils.manager.AppManager;
 
 /**
  * app启动页
@@ -27,7 +28,8 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         WindowManagerUtils.SetFullscreenWindow(this);
         setContentView(R.layout.activity_start);
-
+        // 添加Activity到堆栈
+        AppManager.getAppManager().addActivity(this);
         mContext = this;
 
         mHandler = new Handler() {
@@ -58,4 +60,10 @@ public class StartActivity extends AppCompatActivity {
         }).start();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // 结束Activity&从堆栈中移除
+        AppManager.getAppManager().finishActivity(this);
+    }
 }

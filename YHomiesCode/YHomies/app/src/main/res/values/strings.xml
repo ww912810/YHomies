@@ -6,4 +6,27 @@
     <string name="squareMorePopularity">更多人气Homies</string>
     <string name="squareNearby">附近Homies</string>
     <string name="squareMoreNearby">结识更多有趣Homies</string>
+
+    <!--登陆相关字符-->
+    <string name="loginOnSuccess">Yes , 登陆成功，Bro！</string>
+    <string name="loginOnError">Oh No，登陆失败，请检查网络！</string>
+    <string name="getVCodeOnSuccess">验证码已发送，Bro ！</string>
+    <string name="getVCodeOnFailure">Please~ 发送频繁，请稍后再试！</string>
+    <string name="getVCodeOnError">What？获取验证码失败，请检查网络！</string>
+    <string name="noPhone">手机号格式错误！</string>
+    <string name="updateOnSuccess">修改成功，Bro！</string>
+    <string name="updateOnError">What？修改失败，请检查网络！</string>
+    <string name="updateOnFailure">Please~ 修改失败，请稍后再试！</string>
+
+    <!--非空判断-->
+    <string name="phoneNotNull">What’s the fuck，手机号不能为空！</string>
+    <string name="phoneFormatError">Oh No，手机号格式有误！</string>
+    <string name="vCodeNotNull">What’s the fuck，验证码不能为空！</string>
+    <string name="phoneOrVCodeNotNull">What’s the fuck，手机号或验证码不能为空！</string>
+    <string name="passwordNotNull">What’s the fuck，密码不能为空！</string>
+    <string name="phoneOrPasswordNotNull">What’s the fuck，手机号或密码不能为空！</string>
+    <string name="passwordNotLessThanSixLength">What’s the fuck，密码不能小于6位！</string>
+    <string name="oldPwdAndNewPwdNotEquals">Hey ,两次密码不一致！</string>
+    <string name="inputVCodeError">Oh No，验证码输入错误！</string>
+
 </resources>

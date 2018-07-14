@@ -7,7 +7,7 @@
     android:background="@color/black_43"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".view.ui.activity.LoginForPasswordActivity">
+    tools:context=".view.ui.activity.RegisterInputPhoneActivity">
 
     <include layout="@layout/app_title" />
 
@@ -27,6 +27,7 @@
         android:background="@null"
         android:hint="请输入手机号"
         android:inputType="phone"
+        android:maxLength="11"
         android:textColor="@color/white"
         android:textColorHint="@color/gray_73"
         android:textSize="16sp" />
@@ -36,53 +37,15 @@
         android:layout_height="1dp"
         android:layout_marginTop="7dp"
         android:background="@color/gray_73" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
-        android:text="密码（6位）"
-        android:textColor="@color/white"
-        android:textSize="18sp" />
-
-
-    <EditText
-        android:id="@+id/etPassWord"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:background="@null"
-        android:hint="请输入不少于6位密码"
-        android:inputType="textPassword"
-        android:textColor="@color/white"
-        android:textColorHint="@color/gray_73"
-        android:textSize="16sp" />
-
-    <View
-        android:layout_width="280dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="7dp"
-        android:background="@color/gray_73" />
-
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnNext"
         android:layout_width="260dp"
         android:layout_height="50dp"
         android:layout_marginTop="27dp"
         android:background="@drawable/ic_shape25_red_ff4646_button_background"
-        android:text="登陆"
+        android:text="下一步"
         android:textColor="@color/white"
         android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/tvVCodeLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:text="验证码登陆"
-        android:textColor="@color/white"
-        android:textSize="14sp" />
 
 </android.support.v7.widget.LinearLayoutCompat>

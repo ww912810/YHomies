@@ -17,10 +17,13 @@ import com.example.dawn.dawnsutils.ToastUtils;
 import com.example.dbh.yhomies.R;
 import com.example.dbh.yhomies.mode.Bean.UserBean;
 import com.example.dbh.yhomies.presenter.PasswordLoginPresenter;
+import com.example.dbh.yhomies.presenter.UpdatePwdPresenter;
+import com.example.dbh.yhomies.utils.manager.AppManager;
 import com.example.dbh.yhomies.view.base_view.BlackBaseActivity;
 import com.example.dbh.yhomies.view.v_interface.IPasswordLoginView;
+import com.example.dbh.yhomies.view.v_interface.IUpDatePwdView;
 
-public class LoginForPasswordActivity extends BlackBaseActivity implements IPasswordLoginView {
+public class FGPasswordForPwdActivity extends BlackBaseActivity implements IPasswordLoginView, IUpDatePwdView {
 
     private Context mContext;
     public SharedPreferences spf; //存储文件对象
@@ -28,20 +31,20 @@ public class LoginForPasswordActivity extends BlackBaseActivity implements IPass
 
     private ImageView ivLeftImage;
 
-    private EditText etPhone, etPassWord;
-    private Button btnLogin;
-    private TextView tvVCodeLogin, tvRightText;
+    private String userPhone, oldPassword, newPassword;
+    private EditText etInputPassword, etAgainInputPassWord;
+    private Button btnGoUpDate;
     private PasswordLoginPresenter passwordLoginPresenter;
+    private UpdatePwdPresenter updatePwdPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_for_password);
-
+        setContentView(R.layout.activity_fg_password_for_pwd);
         mContext = this;
-
         spf = mContext.getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
         editor = spf.edit();
+        userPhone = getIntent().getStringExtra("userPhone");
     }
 
     @Override
@@ -56,17 +59,15 @@ public class LoginForPasswordActivity extends BlackBaseActivity implements IPass
         ImageView ivRightImage = findViewById(R.id.ivRightImage);
         ivRightImage.setVisibility(View.GONE);
         TextView tvTitle = findViewById(R.id.tvTitle);
-        tvTitle.setText("");
-        tvRightText = findViewById(R.id.tvRightText);
-        tvRightText.setVisibility(View.VISIBLE);
-        tvRightText.setText("忘记密码");
-        tvRightText.setTextColor(getResources().getColor(R.color.white));
+        tvTitle.setText("忘记密码");
+        TextView tvRightText = findViewById(R.id.tvRightText);
+        tvRightText.setVisibility(View.GONE);
 
-        etPhone = findViewById(R.id.etPhone);
-        etPassWord = findViewById(R.id.etPassWord);
-        btnLogin = findViewById(R.id.btnLogin);
-        tvVCodeLogin = findViewById(R.id.tvVCodeLogin);
+        etInputPassword = findViewById(R.id.etInputPassword);
+        etAgainInputPassWord = findViewById(R.id.etAgainInputPassWord);
+        btnGoUpDate = findViewById(R.id.btnGoUpDate);
         passwordLoginPresenter = new PasswordLoginPresenter(this);
+        updatePwdPresenter = new UpdatePwdPresenter(this);
     }
 
     @Override
@@ -77,40 +78,32 @@ public class LoginForPasswordActivity extends BlackBaseActivity implements IPass
                 finish();
             }
         });
-        //忘记密码
-        tvRightText.setOnClickListener(new View.OnClickListener() {
+
+        btnGoUpDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(mContext,FGPasswordForPhoneActivity.class));
-            }
-        });
-        //登陆
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (StringUtils.isEmpty(etPhone.getText().toString()) || StringUtils.isEmpty(etPassWord.getText().toString())) {
-                    ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.phoneOrPasswordNotNull));
+                if (StringUtils.isEmpty(etInputPassword.getText().toString()) || StringUtils.isEmpty(etAgainInputPassWord.getText().toString())) {
+                    ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.passwordNotNull));
                 } else {
-                    if (etPassWord.length() >= 6) {
-                        String phone = etPhone.getText().toString();
-                        String password = etPassWord.getText().toString();
-                        passwordLoginPresenter.passwordLogin(phone, password, mContext);
-                    } else {
+                    if (etInputPassword.length() < 6 || etAgainInputPassWord.length() < 6) {
                         ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.passwordNotLessThanSixLength));
+                    } else {
+                        oldPassword = etInputPassword.getText().toString();
+                        newPassword = etAgainInputPassWord.getText().toString();
+                        if (oldPassword.equals(newPassword)) {
+                            //两次密码相等
+                            updatePwdPresenter.updatePwdLogin(userPhone, newPassword, mContext);
+                        } else {
+                            ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.oldPwdAndNewPwdNotEquals));
+                        }
                     }
                 }
             }
         });
-        //跳转到验证码登陆
-        tvVCodeLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(mContext, LoginActivity.class));
-                finish();
-            }
-        });
     }
 
+    ///////////////////////////////////////分割线///////////////////////////////////////////////////////
+    /////////////////////////////////以下为密码登陆返回结果//////////////////////////////////////////////
     @Override
     public void passwordLoginOnSuccess(UserBean userBean) {
         editor.putString("userId", userBean.userId);
@@ -123,18 +116,41 @@ public class LoginForPasswordActivity extends BlackBaseActivity implements IPass
         editor.putString("userPwd", userBean.userPwd);
         editor.putString("userPhone", userBean.userPhone);
         editor.putBoolean("isLoggedIn", true);
+        editor.putString("userPwd", newPassword);
         editor.commit();
         ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.loginOnSuccess));
-        finish();
+        AppManager.getAppManager().finishActivity(new FGPasswordForPhoneActivity());
+        AppManager.getAppManager().finishActivity(new LoginForPasswordActivity());
+        AppManager.getAppManager().finishActivity(this);
     }
 
     @Override
     public void passwordLoginOnFailure(String msg) {
-        ToastUtils.showSafeShortToast(mContext, msg);
+        ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.loginOnError));
     }
 
     @Override
     public void passwordLoginOnError() {
         ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.loginOnError));
+    }
+
+    ///////////////////////////////////////分割线///////////////////////////////////////////////////////
+    /////////////////////////////////以下为修改密码返回结果//////////////////////////////////////////////
+    @Override
+    public void updatePwdOnSuccess(String userPhone, String pwd) {
+        this.userPhone = userPhone;
+        newPassword = pwd;
+        ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.updateOnSuccess));
+        passwordLoginPresenter.passwordLogin(userPhone, newPassword, mContext);
+    }
+
+    @Override
+    public void updatePwdOnFailure(String msg) {
+        ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.updateOnFailure));
+    }
+
+    @Override
+    public void updatePwdOnError() {
+        ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.updateOnError));
     }
 }

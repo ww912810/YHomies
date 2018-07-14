@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 访问网络状态权限 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
 
     <application
         android:name=".application.MyApplication"
@@ -42,7 +43,12 @@
         <activity android:name=".view.ui.activity.MorePopularityActivity" />
         <activity android:name=".view.ui.activity.LoginAndRegisteredActivity" />
         <activity android:name=".view.ui.activity.LoginActivity" />
-        <activity android:name=".view.ui.activity.LoginForPasswordActivity"></activity>
+        <activity android:name=".view.ui.activity.LoginForPasswordActivity" />
+        <activity android:name=".view.ui.activity.FGPasswordForPhoneActivity" />
+        <activity android:name=".view.ui.activity.FGPasswordForPwdActivity" />
+        <activity android:name=".view.ui.activity.RegisterInputPhoneActivity" />
+        <activity android:name=".view.ui.activity.RegisterInputVCodeActivity" />
+        <activity android:name=".view.ui.activity.RegisterInputPwdActivity"></activity>
     </application>
 
 </manifest>

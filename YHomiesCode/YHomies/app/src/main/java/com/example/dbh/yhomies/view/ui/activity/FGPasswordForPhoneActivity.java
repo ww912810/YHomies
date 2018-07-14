@@ -2,7 +2,7 @@ package com.example.dbh.yhomies.view.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,38 +14,31 @@ import android.widget.TextView;
 import com.example.dawn.dawnsutils.StringUtils;
 import com.example.dawn.dawnsutils.ToastUtils;
 import com.example.dbh.yhomies.R;
-import com.example.dbh.yhomies.mode.Bean.UserBean;
 import com.example.dbh.yhomies.presenter.GetVCodePresenter;
 import com.example.dbh.yhomies.presenter.VCodeLoginPresenter;
 import com.example.dbh.yhomies.view.base_view.BlackBaseActivity;
 import com.example.dbh.yhomies.view.customize_view.MyCountDownTimer;
 import com.example.dbh.yhomies.view.v_interface.IGetVCodeView;
-import com.example.dbh.yhomies.view.v_interface.IVCodeLoginView;
 
-public class LoginActivity extends BlackBaseActivity implements IVCodeLoginView, IGetVCodeView {
+public class FGPasswordForPhoneActivity extends BlackBaseActivity implements IGetVCodeView {
 
     private Context mContext;
-    public SharedPreferences spf; //存储文件对象
-    public SharedPreferences.Editor editor; //文件编辑对象
-
     private ImageView ivLeftImage;
 
     private EditText etPhone, etVCode;
-    private TextView tvGetVCode, tvPasswordLogin;
-    private Button btnLogin;
+    private TextView tvGetVCode;
+    private Button btnNext;
     private String phone, editVCode, vCodeValue;
-    private VCodeLoginPresenter vCodeLoginPresenter;
-    private GetVCodePresenter getVCodePresenter;
     private MyCountDownTimer myCountDownTimer;
+    private GetVCodePresenter getVCodePresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_fg_password_for_phone);
+
         mContext = this;
 
-        spf = mContext.getSharedPreferences("UserInfo", Context.MODE_PRIVATE);
-        editor = spf.edit();
     }
 
     @Override
@@ -60,16 +53,14 @@ public class LoginActivity extends BlackBaseActivity implements IVCodeLoginView,
         ImageView ivRightImage = findViewById(R.id.ivRightImage);
         ivRightImage.setVisibility(View.GONE);
         TextView tvTitle = findViewById(R.id.tvTitle);
-        tvTitle.setText("");
+        tvTitle.setText("忘记密码");
         TextView tvRightText = findViewById(R.id.tvRightText);
         tvRightText.setVisibility(View.GONE);
 
         etPhone = findViewById(R.id.etPhone);
         etVCode = findViewById(R.id.etVCode);
         tvGetVCode = findViewById(R.id.tvGetVCode);
-        tvPasswordLogin = findViewById(R.id.tvPasswordLogin);
-        btnLogin = findViewById(R.id.btnLogin);
-        vCodeLoginPresenter = new VCodeLoginPresenter(this);
+        btnNext = findViewById(R.id.btnNext);
         getVCodePresenter = new GetVCodePresenter(this);
         myCountDownTimer = new MyCountDownTimer(60000, 1000, tvGetVCode);
     }
@@ -80,6 +71,26 @@ public class LoginActivity extends BlackBaseActivity implements IVCodeLoginView,
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (StringUtils.isEmpty(etPhone.getText().toString()) || StringUtils.isEmpty(etVCode.getText().toString())) {
+                    ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.phoneOrVCodeNotNull));
+                } else {
+                    phone = etPhone.getText().toString();
+                    editVCode = etVCode.getText().toString();
+                    if (editVCode.equals(vCodeValue)) {
+                        //
+                        Intent intent = new Intent(mContext,FGPasswordForPwdActivity.class);
+                        intent.putExtra("userPhone",phone);
+                        startActivity(intent);
+                    } else {
+                        ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.inputVCodeError));
+                    }
+                }
             }
         });
 
@@ -96,97 +107,19 @@ public class LoginActivity extends BlackBaseActivity implements IVCodeLoginView,
                 }
             }
         });
-        //切换密码登陆
-        tvPasswordLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(mContext,LoginForPasswordActivity.class));
-                finish();
-            }
-        });
-        //登陆
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (StringUtils.isEmpty(etPhone.getText().toString()) || StringUtils.isEmpty(etVCode.getText().toString())) {
-                    ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.phoneOrVCodeNotNull));
-                } else {
-                    phone = etPhone.getText().toString();
-                    editVCode = etVCode.getText().toString();
-                    if (editVCode.equals(vCodeValue)) {
-                        vCodeLoginPresenter.VCodeLogin(phone, mContext);
-                    } else {
-                        ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.inputVCodeError));
-                    }
-                }
-
-            }
-        });
     }
 
-    /**
-     * 验证码登陆成功
-     *
-     * @param userBean 用户信息
-     */
-    @Override
-    public void vCodeLoginOnSuccess(UserBean userBean) {
-        editor.putString("userId", userBean.userId);
-        editor.putString("userName", userBean.userName);
-        editor.putString("userCity", userBean.userCity);
-        editor.putString("userSex", userBean.userSex);
-        editor.putString("userSignature", userBean.userSignature);
-        editor.putString("userLogo", userBean.userLogo);
-        editor.putString("userBackgroundUrl", userBean.userBackgroundUrl);
-        editor.putString("userPwd", userBean.userPwd);
-        editor.putString("userPhone", userBean.userPhone);
-        editor.putBoolean("isLoggedIn", true);
-        editor.commit();
-        ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.loginOnSuccess));
-    }
-
-    /**
-     * 验证码登陆失败
-     *
-     * @param msg
-     */
-    @Override
-    public void vCodeLoginOnFailure(String msg) {
-        ToastUtils.showSafeShortToast(mContext, msg);
-    }
-
-    /**
-     * 网络错误
-     */
-    @Override
-    public void vCodeLoginOnError() {
-        ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.loginOnError));
-    }
-
-    /**
-     * 获取验证码成功
-     *
-     * @param vCodeValue 验证码
-     */
     @Override
     public void getVCodeOnSuccess(String vCodeValue) {
         ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.getVCodeOnSuccess));
         this.vCodeValue = vCodeValue;
     }
 
-    /**
-     * 获取验证码失败
-     *
-     * @param msg
-     */
     @Override
     public void getVCodeOnFailure(String msg) {
         ToastUtils.showSafeShortToast(mContext, msg);
     }
 
-    /**
-     * 网络错误
-     */
     @Override
     public void getVCodeOnError() {
         ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.getVCodeOnError));
