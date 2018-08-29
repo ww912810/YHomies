@@ -114,4 +114,13 @@ public class RegisterInputVCodeActivity extends BlackBaseActivity implements IGe
     public void getVCodeOnError() {
         ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.getVCodeOnError));
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (getVCodePresenter != null) {
+            getVCodePresenter.destroy();
+            getVCodePresenter = null;
+        }
+    }
 }

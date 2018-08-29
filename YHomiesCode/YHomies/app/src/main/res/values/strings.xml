@@ -7,7 +7,7 @@
     <string name="squareNearby">附近Homies</string>
     <string name="squareMoreNearby">结识更多有趣Homies</string>
 
-    <!--登陆相关字符-->
+    <!--登陆注册相关字符-->
     <string name="loginOnSuccess">Yes , 登陆成功，Bro！</string>
     <string name="loginOnError">Oh No，登陆失败，请检查网络！</string>
     <string name="getVCodeOnSuccess">验证码已发送，Bro ！</string>
@@ -17,6 +17,9 @@
     <string name="updateOnSuccess">修改成功，Bro！</string>
     <string name="updateOnError">What？修改失败，请检查网络！</string>
     <string name="updateOnFailure">Please~ 修改失败，请稍后再试！</string>
+    <string name="registerOnSuccess">Yes , 注册成功，Bro！</string>
+    <string name="registerOnFailure">Please~ 注册失败，请稍后再试！</string>
+    <string name="registerOnError">Oh No，注册失败，请检查网络！</string>
 
     <!--非空判断-->
     <string name="phoneNotNull">What’s the fuck，手机号不能为空！</string>

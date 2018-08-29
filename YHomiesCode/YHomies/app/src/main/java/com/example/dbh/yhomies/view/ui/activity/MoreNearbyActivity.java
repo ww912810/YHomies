@@ -81,4 +81,13 @@ public class MoreNearbyActivity extends WhiteBaseActivity implements ISquareView
             }
         });
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (squarePresenter != null) {
+            squarePresenter.destroy();
+            squarePresenter = null;
+        }
+    }
 }

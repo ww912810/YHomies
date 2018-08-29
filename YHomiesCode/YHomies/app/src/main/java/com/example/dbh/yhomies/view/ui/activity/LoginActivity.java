@@ -143,6 +143,7 @@ public class LoginActivity extends BlackBaseActivity implements IVCodeLoginView,
         editor.putBoolean("isLoggedIn", true);
         editor.commit();
         ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.loginOnSuccess));
+        finish();
     }
 
     /**
@@ -190,5 +191,14 @@ public class LoginActivity extends BlackBaseActivity implements IVCodeLoginView,
     @Override
     public void getVCodeOnError() {
         ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.getVCodeOnError));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (getVCodePresenter != null) {
+            getVCodePresenter.destroy();
+            getVCodePresenter = null;
+        }
     }
 }

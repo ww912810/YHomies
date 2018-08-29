@@ -153,4 +153,15 @@ public class FGPasswordForPwdActivity extends BlackBaseActivity implements IPass
     public void updatePwdOnError() {
         ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.updateOnError));
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (passwordLoginPresenter != null || updatePwdPresenter != null) {
+            passwordLoginPresenter.destroy();
+            updatePwdPresenter.destroy();
+            passwordLoginPresenter = null;
+            updatePwdPresenter = null;
+        }
+    }
 }

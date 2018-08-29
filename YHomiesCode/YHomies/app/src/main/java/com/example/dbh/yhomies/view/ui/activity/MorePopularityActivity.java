@@ -24,7 +24,7 @@ import com.example.dbh.yhomies.view.v_interface.ISquareView;
 
 import java.util.List;
 
-public class MorePopularityActivity extends WhiteBaseActivity implements ISquareView ,ISquareMoreView{
+public class MorePopularityActivity extends WhiteBaseActivity implements ISquareView, ISquareMoreView {
 
     private Context mContext;
     private ImageView ivLeftImage;
@@ -44,7 +44,7 @@ public class MorePopularityActivity extends WhiteBaseActivity implements ISquare
         mContext = this;
 
         squarePresenter.getMoreSettleIn();
-        getMorePopularity.getMorePopularity(pageNo,pageCount,"0","城市","人气最多");
+        getMorePopularity.getMorePopularity(pageNo, pageCount, "0", "城市", "人气最多");
     }
 
     @Override
@@ -104,5 +104,16 @@ public class MorePopularityActivity extends WhiteBaseActivity implements ISquare
                 ToastUtils.showSafeShortToast(mContext, list.get(position).isAttention);
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (getMorePopularity != null || squarePresenter != null) {
+            getMorePopularity.destroy();
+            getMorePopularity.destroy();
+            squarePresenter = null;
+            squarePresenter = null;
+        }
     }
 }

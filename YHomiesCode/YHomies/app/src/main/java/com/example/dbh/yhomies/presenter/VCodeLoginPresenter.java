@@ -40,4 +40,11 @@ public class VCodeLoginPresenter {
 
     }
 
+    /**
+     * 释放引用，防止内存泄露
+     */
+    public void destroy() {
+        ivCodeLoginView = null;
+    }
+
 }

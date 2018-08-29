@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class SquarePresenter {
 
     private ISquareView iSquareView;
-    private ISquareMoreView iSquareMoreView;
 
     public SquarePresenter(ISquareView iSquareView) {
         this.iSquareView = iSquareView;
@@ -108,6 +107,13 @@ public class SquarePresenter {
 
             }
         });
+    }
+
+    /**
+     * 释放引用，防止内存泄露
+     */
+    public void destroy() {
+        iSquareView = null;
     }
 
 }

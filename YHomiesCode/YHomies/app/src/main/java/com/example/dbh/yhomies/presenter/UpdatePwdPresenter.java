@@ -43,4 +43,11 @@ public class UpdatePwdPresenter {
 
     }
 
+    /**
+     * 释放引用，防止内存泄露
+     */
+    public void destroy() {
+        iUpDatePwdView = null;
+    }
+
 }

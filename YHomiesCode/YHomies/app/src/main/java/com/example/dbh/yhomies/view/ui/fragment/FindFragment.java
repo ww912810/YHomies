@@ -1,5 +1,6 @@
 package com.example.dbh.yhomies.view.ui.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,8 +12,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.dbh.yhomies.R;
+import com.example.dbh.yhomies.utils.DialogUtils;
 
 /**
  * 发现
@@ -29,6 +32,8 @@ public class FindFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_find, null);
         mContext = getActivity();
+
+
         return view;
     }
 

@@ -44,4 +44,11 @@ public class SquareMorePresenter {
         }, pageNo, countPage, uid, city, filer);
     }
 
+    /**
+     * 释放引用，防止内存泄露
+     */
+    public void destroy() {
+        iSquareMoreView = null;
+    }
+
 }

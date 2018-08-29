@@ -84,8 +84,8 @@ public class FGPasswordForPhoneActivity extends BlackBaseActivity implements IGe
                     editVCode = etVCode.getText().toString();
                     if (editVCode.equals(vCodeValue)) {
                         //
-                        Intent intent = new Intent(mContext,FGPasswordForPwdActivity.class);
-                        intent.putExtra("userPhone",phone);
+                        Intent intent = new Intent(mContext, FGPasswordForPwdActivity.class);
+                        intent.putExtra("userPhone", phone);
                         startActivity(intent);
                     } else {
                         ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.inputVCodeError));
@@ -123,5 +123,14 @@ public class FGPasswordForPhoneActivity extends BlackBaseActivity implements IGe
     @Override
     public void getVCodeOnError() {
         ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.getVCodeOnError));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (getVCodePresenter != null) {
+            getVCodePresenter.destroy();
+            getVCodePresenter = null;
+        }
     }
 }

@@ -137,4 +137,13 @@ public class LoginForPasswordActivity extends BlackBaseActivity implements IPass
     public void passwordLoginOnError() {
         ToastUtils.showSafeShortToast(mContext, getResources().getString(R.string.loginOnError));
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (passwordLoginPresenter != null) {
+            passwordLoginPresenter.destroy();
+            passwordLoginPresenter = null;
+        }
+    }
 }

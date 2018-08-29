@@ -137,6 +137,7 @@ public class SquareFragment extends Fragment implements ISquareFieldView, ISquar
 
     /**
      * 附近用户数据
+     *
      * @param data
      */
     @Override
@@ -173,4 +174,14 @@ public class SquareFragment extends Fragment implements ISquareFieldView, ISquar
         });
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (squareFieldPresenter != null || squarePresenter != null) {
+            squareFieldPresenter.destroy();
+            squareFieldPresenter.destroy();
+            squarePresenter = null;
+            squarePresenter = null;
+        }
+    }
 }
