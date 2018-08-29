@@ -28,8 +28,9 @@ public class HomeFragment extends Fragment {
     private MainFragmentsAdapter adapter;
     private ArrayList<Fragment> fragments;
     private HomeChildFragment homeChildFragment;
+    private OriginalFragment originalFragment;
     private NoScrollViewPager nsViewPage;
-    private String tabTitle[] = new String[]{"热门","关注","附近"};
+    private String tabTitle[] = new String[]{"推荐", "关注", "附近", "原创"};
 
     private SlidingTabLayout tabLayoutPosts;
 
@@ -60,15 +61,20 @@ public class HomeFragment extends Fragment {
         fragments = new ArrayList<>();
         for (int i = 0; i < tabTitle.length; i++) {
             Bundle bundle = new Bundle();
-            bundle.putString("checkTitle",tabTitle[i]);
-            homeChildFragment = new HomeChildFragment();
-            homeChildFragment.setArguments(bundle);
-            fragments.add(homeChildFragment);
+            bundle.putString("checkTitle", tabTitle[i]);
+            if (i == 3) {
+                originalFragment = new OriginalFragment();
+                fragments.add(originalFragment);
+            } else {
+                homeChildFragment = new HomeChildFragment();
+                homeChildFragment.setArguments(bundle);
+                fragments.add(homeChildFragment);
+            }
         }
-        adapter = new MainFragmentsAdapter(getChildFragmentManager(),fragments);
+        adapter = new MainFragmentsAdapter(getChildFragmentManager(), fragments);
         nsViewPage.setAdapter(adapter);
         nsViewPage.setCurrentItem(0);
-        tabLayoutPosts.setViewPager(nsViewPage,tabTitle);
+        tabLayoutPosts.setViewPager(nsViewPage, tabTitle);
     }
 
 }

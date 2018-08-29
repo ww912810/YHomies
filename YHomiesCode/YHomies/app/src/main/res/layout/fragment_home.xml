@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_f7"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".view.ui.fragment.HomeFragment">
 
     <View
@@ -17,7 +17,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginBottom="10dp"
         android:background="@color/white">
 
         <ImageView
@@ -25,6 +24,15 @@
             android:layout_height="match_parent"
             android:scaleType="center"
             android:src="@mipmap/ic_search" />
+
+        <TextView
+            android:text="Homies"
+            android:textColor="@color/black_3f"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <RelativeLayout
             android:id="@+id/rlMessage"
@@ -53,21 +61,21 @@
 
         </RelativeLayout>
 
-        <com.flyco.tablayout.SlidingTabLayout
-            android:id="@+id/tabLayoutPosts"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_centerHorizontal="true"
-            android:background="@color/white"
-            app:tl_indicator_color="@color/red_ed"
-            app:tl_indicator_corner_radius="3px"
-            app:tl_indicator_height="2dp"
-            app:tl_indicator_width="120px"
-            app:tl_textSelectColor="@color/black_3f"
-            app:tl_textUnselectColor="@color/gray_a5"
-            app:tl_textsize="16sp" />
     </RelativeLayout>
 
+    <com.flyco.tablayout.SlidingTabLayout
+        android:id="@+id/tabLayoutPosts"
+        app:tl_tab_padding="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:background="@color/white"
+        app:tl_indicator_color="@color/red_ed"
+        app:tl_indicator_corner_radius="3px"
+        app:tl_indicator_height="2dp"
+        app:tl_indicator_width="120px"
+        app:tl_textSelectColor="@color/black_3f"
+        app:tl_textUnselectColor="@color/gray_a5"
+        app:tl_textsize="16sp" />
 
     <com.example.dbh.yhomies.view.customize_view.NoScrollViewPager
         android:id="@+id/nsViewPage"

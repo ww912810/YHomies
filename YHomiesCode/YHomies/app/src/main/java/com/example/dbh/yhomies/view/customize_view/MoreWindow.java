@@ -146,24 +146,24 @@ public class MoreWindow extends PopupWindow implements OnClickListener {
                 }
             });
             //菜单项弹出动画
-            for (int i = 0; i < linearLayout.getChildCount(); i++) {
-                final View child = linearLayout.getChildAt(i);
-                child.setOnClickListener(this);
-                child.setVisibility(View.INVISIBLE);
-                mHandler.postDelayed(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        child.setVisibility(View.VISIBLE);
-                        ValueAnimator fadeAnim = ObjectAnimator.ofFloat(child, "translationY", 600, 0);
-                        fadeAnim.setDuration(200);
-                        KickBackAnimator kickAnimator = new KickBackAnimator();
-                        kickAnimator.setDuration(150);
-                        fadeAnim.setEvaluator(kickAnimator);
-                        fadeAnim.start();
-                    }
-                }, i * 50 + 100);
-            }
+//            for (int i = 0; i < linearLayout.getChildCount(); i++) {
+//                final View child = linearLayout.getChildAt(i);
+//                child.setOnClickListener(this);
+//                child.setVisibility(View.INVISIBLE);
+//                mHandler.postDelayed(new Runnable() {
+//
+//                    @Override
+//                    public void run() {
+//                        child.setVisibility(View.VISIBLE);
+//                        ValueAnimator fadeAnim = ObjectAnimator.ofFloat(child, "translationY", 600, 0);
+//                        fadeAnim.setDuration(200);
+//                        KickBackAnimator kickAnimator = new KickBackAnimator();
+//                        kickAnimator.setDuration(150);
+//                        fadeAnim.setEvaluator(kickAnimator);
+//                        fadeAnim.start();
+//                    }
+//                }, i * 50 + 100);
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }

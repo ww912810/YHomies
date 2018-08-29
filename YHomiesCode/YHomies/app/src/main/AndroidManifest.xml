@@ -48,7 +48,8 @@
         <activity android:name=".view.ui.activity.FGPasswordForPwdActivity" />
         <activity android:name=".view.ui.activity.RegisterInputPhoneActivity" />
         <activity android:name=".view.ui.activity.RegisterInputVCodeActivity" />
-        <activity android:name=".view.ui.activity.RegisterInputPwdActivity"></activity>
+        <activity android:name=".view.ui.activity.RegisterInputPwdActivity" />
+        <activity android:name=".view.ui.fragment.OriginalFragment"></activity>
     </application>
 
 </manifest>
