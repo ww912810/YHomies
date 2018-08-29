@@ -57,11 +57,19 @@
 
         <ImageView
             android:id="@+id/ivReleaseOriginal"
-            android:layout_width="66dp"
-            android:layout_height="76dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginTop="22dp"
             android:clickable="true"
-            android:src="@mipmap/release_pic" />
+            android:src="@mipmap/ic_original" />
+        <TextView
+            android:text="原创"
+            android:layout_marginTop="7dp"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/black_3f"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
