@@ -61,6 +61,7 @@
     <color name="blue_7b">#7bb5f9</color>
     <color name="red_ed">#ed0000</color>
     <color name="red_ff2d2d">#ff2d2d</color>
+    <color name="red_ff2e2e">#ff2e2e</color>
     <color name="red_ff4646">#ff4646</color>
     <color name="red_ff6262">#ff6262</color>
 </resources>
