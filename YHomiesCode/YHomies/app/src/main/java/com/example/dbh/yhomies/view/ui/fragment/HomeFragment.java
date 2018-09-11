@@ -1,16 +1,19 @@
 package com.example.dbh.yhomies.view.ui.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.example.dbh.yhomies.R;
 import com.example.dbh.yhomies.view.adapter.MainFragmentsAdapter;
 import com.example.dbh.yhomies.view.customize_view.NoScrollViewPager;
+import com.example.dbh.yhomies.view.ui.activity.MessageActivity;
 import com.flyco.tablayout.SlidingTabLayout;
 
 import java.util.ArrayList;
@@ -33,6 +36,7 @@ public class HomeFragment extends Fragment {
     private String tabTitle[] = new String[]{"推荐", "关注", "附近", "原创"};
 
     private SlidingTabLayout tabLayoutPosts;
+    private RelativeLayout rlMessage;
 
     @Nullable
     @Override
@@ -42,6 +46,7 @@ public class HomeFragment extends Fragment {
 
         initView();
         initFragment();
+        initListener();
 
         return view;
     }
@@ -52,6 +57,16 @@ public class HomeFragment extends Fragment {
     private void initView() {
         nsViewPage = view.findViewById(R.id.nsViewPage);
         tabLayoutPosts = view.findViewById(R.id.tabLayoutPosts);
+        rlMessage = view.findViewById(R.id.rlMessage);
+    }
+
+    private void initListener() {
+        rlMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mContext, MessageActivity.class));
+            }
+        });
     }
 
     /**

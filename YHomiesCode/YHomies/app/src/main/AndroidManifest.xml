@@ -49,7 +49,10 @@
         <activity android:name=".view.ui.activity.RegisterInputPhoneActivity" />
         <activity android:name=".view.ui.activity.RegisterInputVCodeActivity" />
         <activity android:name=".view.ui.activity.RegisterInputPwdActivity" />
-        <activity android:name=".view.ui.fragment.OriginalFragment"></activity>
+        <activity android:name=".view.ui.fragment.OriginalFragment" />
+        <activity android:name=".view.ui.activity.MessageActivity" />
+        <activity android:name=".view.ui.fragment.ChatFragment" />
+        <activity android:name=".view.ui.fragment.NoticeFragment"></activity>
     </application>
 
 </manifest>

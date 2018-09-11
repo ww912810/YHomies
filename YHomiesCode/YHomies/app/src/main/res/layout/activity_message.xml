@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.ui.activity.MessageActivity">
+
+    <View
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:src="@mipmap/ic_return" />
+
+        <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/tabLayoutMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:background="@color/white"
+            app:tl_indicator_color="@color/red_ed"
+            app:tl_indicator_corner_radius="3px"
+            app:tl_indicator_height="2dp"
+            app:tl_indicator_width="120px"
+            app:tl_tab_padding="25dp"
+            app:tl_textSelectColor="@color/black_3f"
+            app:tl_textUnselectColor="@color/gray_a5"
+            app:tl_textsize="16sp" />
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vpMessage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</android.support.v7.widget.LinearLayoutCompat>
