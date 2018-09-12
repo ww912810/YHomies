@@ -7,6 +7,9 @@
     <!-- 访问网络状态权限 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <!-- 文件读写权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".application.MyApplication"
@@ -52,7 +55,10 @@
         <activity android:name=".view.ui.fragment.OriginalFragment" />
         <activity android:name=".view.ui.activity.MessageActivity" />
         <activity android:name=".view.ui.fragment.ChatFragment" />
-        <activity android:name=".view.ui.fragment.NoticeFragment"></activity>
+        <activity android:name=".view.ui.fragment.NoticeFragment" />
+        <activity android:name=".view.ui.activity.EditOriginalPost" />
+        <activity android:name=".view.ui.activity.EditOriginalImgAndVideoPost" />
+        <activity android:name=".view.ui.activity.ChooseVideoFileActivity"></activity>
     </application>
 
 </manifest>
